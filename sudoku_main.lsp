@@ -106,13 +106,27 @@
 				(turn (second misc))
 				(ansList (third misc))
 				)
-		(list (setf (aref board y x w z) n) board (list failed_ans (+ turn 1) (append ansList (list ans))))
+		(setf (aref board y x w z) n)
+		(list  board (list failed_ans (+ turn 1) (append ansList (list ans))))
 		)
 	)
 
 ;|(0,0)|(0,1)|(0,2)| (y,x), (w,z)
 ;|(1,0)|(1,1)|(1,2)|
 ;|(2,0)|(2,1)|(2,2)|
+
+;display
+
+(defun draw_x (board)
+	(loop for x from 0 to 2 do
+				(
+
+(defun draw_sudoku (board)
+	(do(cur board)
+		(format t "|")
+		(if (null cur) (format t " ") (prin1 cur))
+		)
+	)
 
 (setf test1 (make-array '(3 3 3 3) :initial-contents
 												'((((NIL 5 NIL) (NIL NIL NIL) (NIL 2 NIL))
